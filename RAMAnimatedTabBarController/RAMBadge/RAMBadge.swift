@@ -8,37 +8,37 @@
 
 import UIKit
 
-class RAMBadge: UILabel {
-    
+public class RAMBadge: UILabel {
+
     var topConstraint: NSLayoutConstraint?
     var centerXConstraint: NSLayoutConstraint?
     var numberLabel: UILabel?
-    
+
     class func bage()->RAMBadge {
         return RAMBadge.init(frame: CGRectMake(0, 0, 18, 18))
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         self.layer.backgroundColor = UIColor.redColor().CGColor;
         self.layer.cornerRadius = frame.size.width / 2;
-        
+
        configureNumberLabel()
 
         self.translatesAutoresizingMaskIntoConstraints = false
-        
+
         // constraints
         createSizeConstraints(frame.size)
 
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // PRAGMA: create
-    
+
     func createSizeConstraints(size: CGSize) {
         let widthConstraint = NSLayoutConstraint(
             item: self,
@@ -50,7 +50,7 @@ class RAMBadge: UILabel {
             constant: size.width)
         self.addConstraint(widthConstraint)
 
-        
+
         let heightConstraint = NSLayoutConstraint(
             item: self,
             attribute: NSLayoutAttribute.Height,
@@ -61,16 +61,16 @@ class RAMBadge: UILabel {
             constant: size.height)
         self.addConstraint(heightConstraint)
     }
-    
+
     func configureNumberLabel()  {
-        
+
         self.textAlignment = .Center
         self.font = UIFont.systemFontOfSize(13)
         self.textColor = UIColor.whiteColor()
     }
-    
+
     // PRAGMA: helpers
-    
+
     func addBadgeOnView(onView:UIView) {
 
         onView.addSubview(self)
@@ -84,7 +84,7 @@ class RAMBadge: UILabel {
             multiplier: 1,
             constant: 3)
         onView.addConstraint(topConstraint!)
-        
+
         centerXConstraint = NSLayoutConstraint(item: self,
             attribute: NSLayoutAttribute.CenterX,
             relatedBy: NSLayoutRelation.Equal,

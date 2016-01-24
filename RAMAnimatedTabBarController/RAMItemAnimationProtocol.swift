@@ -31,7 +31,7 @@ protocol RAMItemAnimationProtocol {
     func selectedState(icon : UIImageView, textLabel : UILabel)
 }
 
-class RAMItemAnimation: NSObject, RAMItemAnimationProtocol {
+public class RAMItemAnimation: NSObject, RAMItemAnimationProtocol {
 
     @IBInspectable var duration : CGFloat = 0.5
     @IBInspectable var textSelectedColor: UIColor = UIColor.init(red: 0, green: 0.478431, blue: 1, alpha: 1)

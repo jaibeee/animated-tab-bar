@@ -23,7 +23,7 @@
 import UIKit
 import QuartzCore
 
-enum RAMRotationDirection {
+public enum RAMRotationDirection {
     case Left
     case Right
 }
@@ -39,7 +39,7 @@ class RAMRotationAnimation : RAMItemAnimation {
 
     override func deselectAnimation(icon : UIImageView, textLabel : UILabel, defaultTextColor : UIColor, defaultIconColor : UIColor) {
         textLabel.textColor = defaultTextColor
-      
+
         if let iconImage = icon.image {
             let renderMode = CGColorGetAlpha(defaultIconColor.CGColor) == 0 ? UIImageRenderingMode.AlwaysOriginal :
                                                                               UIImageRenderingMode.AlwaysTemplate
@@ -51,7 +51,7 @@ class RAMRotationAnimation : RAMItemAnimation {
 
     override func selectedState(icon : UIImageView, textLabel : UILabel) {
         textLabel.textColor = textSelectedColor
-      
+
         if let iconImage = icon.image {
             let renderImage = iconImage.imageWithRenderingMode(.AlwaysTemplate)
             icon.image = renderImage
@@ -73,7 +73,7 @@ class RAMRotationAnimation : RAMItemAnimation {
         rotateAnimation.duration = NSTimeInterval(duration)
 
         icon.layer.addAnimation(rotateAnimation, forKey: "rotation360")
-      
+
         if let iconImage = icon.image {
             let renderImage = iconImage.imageWithRenderingMode(.AlwaysTemplate)
             icon.image = renderImage
